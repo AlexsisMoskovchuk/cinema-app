@@ -1,6 +1,5 @@
 package cinema.service.impl;
 
-import java.util.ArrayList;
 import cinema.dao.ShoppingCartDao;
 import cinema.dao.TicketDao;
 import cinema.lib.Inject;
@@ -10,6 +9,7 @@ import cinema.model.ShoppingCart;
 import cinema.model.Ticket;
 import cinema.model.User;
 import cinema.service.ShoppingCartService;
+import java.util.ArrayList;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {

@@ -14,10 +14,8 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private MovieSession movieSession;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
@@ -48,8 +46,7 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket{" + "id=" + id
-              + ", movieSession=" + movieSession
-              + ", user=" + user + '}';
+                + ", movieSession=" + movieSession
+                + ", user=" + user + '}';
     }
-
 }

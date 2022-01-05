@@ -1,10 +1,7 @@
 package cinema;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-import cinema.exception.RegistrationException;
 import cinema.exception.AuthenticationException;
+import cinema.exception.RegistrationException;
 import cinema.lib.Injector;
 import cinema.model.CinemaHall;
 import cinema.model.Movie;
@@ -18,6 +15,9 @@ import cinema.service.MovieService;
 import cinema.service.MovieSessionService;
 import cinema.service.OrderService;
 import cinema.service.ShoppingCartService;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class Main {
     private static final Injector injector = Injector.getInstance("cinema");
@@ -65,7 +65,7 @@ public class Main {
 
         System.out.println(movieSessionService.get(yesterdayMovieSession.getId()));
         System.out.println(movieSessionService.findAvailableSessions(
-                        fastAndFurious.getId(), LocalDate.now()));
+                fastAndFurious.getId(), LocalDate.now()));
 
         AuthenticationService authService =
                 (AuthenticationService) injector.getInstance(AuthenticationService.class);

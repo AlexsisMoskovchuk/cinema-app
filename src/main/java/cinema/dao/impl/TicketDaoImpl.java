@@ -1,16 +1,15 @@
 package cinema.dao.impl;
 
+import cinema.dao.TicketDao;
 import cinema.exception.DataProcessingException;
 import cinema.lib.Dao;
 import cinema.model.Ticket;
 import cinema.util.HibernateUtil;
-import cinema.dao.TicketDao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 @Dao
 public class TicketDaoImpl implements TicketDao {
-
     @Override
     public Ticket add(Ticket ticket) {
         Session session = null;

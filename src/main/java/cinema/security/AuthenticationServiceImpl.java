@@ -1,13 +1,14 @@
 package cinema.security;
 
-import java.util.Optional;
 import cinema.exception.AuthenticationException;
+import cinema.exception.RegistrationException;
 import cinema.lib.Inject;
 import cinema.lib.Service;
 import cinema.model.User;
 import cinema.service.ShoppingCartService;
 import cinema.service.UserService;
 import cinema.util.HashUtil;
+import java.util.Optional;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -26,13 +27,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public User register(String email, String password) {
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(password);
-        userService.add(user);
-        shoppingCartService.registerNewShoppingCart(user);
-        return user;
+    public User register(String email, String password) throws RegistrationException {
+        Optional<User> userOptional = userService.findByEmail(email);
+        if (userOptional.isEmpty()) {
+            User user = new User();
+            user.setEmail(email);
+            user.setPassword(password);
+            userService.add(user);
+            shoppingCartService.registerNewShoppingCart(user);
+            return user;
+        }
+        throw new RegistrationException("User with this email already exist ");
     }
 
     private boolean matchPasswords(String rawPassword, User userFromDb) {
