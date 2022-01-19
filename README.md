@@ -20,11 +20,10 @@ The access for endpoints depends on these roles.
 * Spring(Core, Web, Security)
 * Apache Tomcat
 * Maven
-* JSON
 ## Opportunities depending on the role
 There are two ready-made users provided for testing this application:
-* username admin@i.ua with password admin123 and role `ADMIN`
-* username user@i.ua with password user123 and role `USER`
+* username admin@gmail.com with password 12345 and role `ADMIN`
+* username user@gmail.com with password 12345 and role `USER`
 
 You can also register a new one (POST: /register)
 

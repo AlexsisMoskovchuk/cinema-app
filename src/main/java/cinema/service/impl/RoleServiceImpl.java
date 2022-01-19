@@ -2,7 +2,6 @@ package cinema.service.impl;
 
 import cinema.dao.RoleDao;
 import cinema.model.Role;
-import cinema.model.RoleName;
 import cinema.service.RoleService;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role getByName(RoleName roleName) {
+    public Role getByName(Role.RoleName roleName) {
         return roleDao.getByName(roleName)
                 .orElseThrow(() -> new RuntimeException("Can't find role " + roleName));
     }
