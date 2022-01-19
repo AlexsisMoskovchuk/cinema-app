@@ -1,7 +1,6 @@
 package cinema.service.impl;
 
 import cinema.model.Role;
-import cinema.model.RoleName;
 import cinema.model.User;
 import cinema.service.AuthenticationService;
 import cinema.service.RoleService;
@@ -31,7 +30,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         user.setEmail(email);
         user.setPassword(password);
         Set<Role> roleNames = new HashSet<>();
-        roleNames.add(roleService.getByName(RoleName.USER));
+        roleNames.add(roleService.getByName(Role.RoleName.USER));
         user.setRoles(roleNames);
         userService.add(user);
         shoppingCartService.registerNewShoppingCart(user);
